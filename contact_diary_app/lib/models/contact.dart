@@ -1,3 +1,12 @@
-import 'package:flutter/material.dart';
+class Contact {
+  String? Fullname;
+  String? phone;
+  String? email;
 
-class
+
+  Contact({
+    required this.Fullname,
+    required this.phone,
+    required this.email,
+});
+}

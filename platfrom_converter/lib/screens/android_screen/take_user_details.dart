@@ -1,11 +1,11 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:platfrom_converter/controllers/providers/app_model_provider.dart';
 import 'package:platfrom_converter/controllers/providers/theme_provider.dart';
 import 'package:platfrom_converter/utils/attributes.dart';
 import 'package:provider/provider.dart';
-
-import '../models/contact_model.dart';
+import '../../models/contact_model.dart';
 
 class take_user_details extends StatefulWidget {
   const take_user_details({Key? key}) : super(key: key);
@@ -38,7 +38,10 @@ class _take_user_detailsState extends State<take_user_details> {
 
   @override
   Widget build(BuildContext context) {
+    GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
     return Scaffold(
+      key: scaffoldKey,
       appBar: AppBar(
         title: Text("Plateform Conveter"),
         actions: [
@@ -47,6 +50,11 @@ class _take_user_detailsState extends State<take_user_details> {
               onChanged: (val) {
                 Provider.of<ThemeProvider>(context, listen: false)
                     .changeTheme();
+              }),
+          Switch(
+              value: Provider.of<App_provider>(context).appModel.isiphone,
+              onChanged: (val) {
+                Provider.of<App_provider>(context).changeApp();
               })
         ],
       ),

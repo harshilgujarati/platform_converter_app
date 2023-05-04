@@ -3,7 +3,7 @@ import 'package:platfrom_converter/utils/attributes.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../controllers/providers/theme_provider.dart';
+import '../../controllers/providers/theme_provider.dart';
 
 class chat_page extends StatefulWidget {
   const chat_page({Key? key}) : super(key: key);
