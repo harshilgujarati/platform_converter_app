@@ -118,14 +118,7 @@ class _cupertino_settins_pageState extends State<cupertino_settins_page> {
                             CupertinoTextFormFieldRow(
                               placeholder: "Enter your name",
                               textAlign: TextAlign.center,
-                              // decoration: BoxDecoration(
-                              //   borderRadius: BorderRadius.circular(8),
-                              //   border: Border.all(
-                              //     color: Colors.grey,
-                              //     width: 1,
-                              //   ),
-                              // ),
-                              onSaved: (val){
+                              onSaved: (val) {
                                 bioname = val;
                               },
                               validator: (value) {
@@ -140,14 +133,7 @@ class _cupertino_settins_pageState extends State<cupertino_settins_page> {
                             CupertinoTextFormFieldRow(
                               textAlign: TextAlign.center,
                               placeholder: "Enter your bio",
-                              // decoration: BoxDecoration(
-                              //   borderRadius: BorderRadius.circular(8),
-                              //   border: Border.all(
-                              //     color: Colors.grey,
-                              //     width: 1,
-                              //   ),
-                              // ),
-                              onSaved: (val){
+                              onSaved: (val) {
                                 bio = val;
                               },
                               validator: (value) {
@@ -165,7 +151,7 @@ class _cupertino_settins_pageState extends State<cupertino_settins_page> {
                                 CupertinoButton(
                                   child: Text("SAVE"),
                                   onPressed: () {
-                                    if(formKey.currentState!.validate()){
+                                    if (formKey.currentState!.validate()) {
                                       formKey.currentState!.save();
                                     }
                                   },
@@ -189,18 +175,20 @@ class _cupertino_settins_pageState extends State<cupertino_settins_page> {
               height: h * 0.02,
             ),
             CupertinoListTile(
-                title: Text('Theme',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                subtitle: Text("Change Theme"),
-                leading: Icon(CupertinoIcons.moon_fill, size: 30),
-                trailing: CupertinoSwitch(
-                  value: Provider.of<ThemeProvider>(context).themeModel.isDark,
-                  onChanged: (value) {
-                    setState(() {
-                      Provider.of<ThemeProvider>(context , listen: false).changeTheme();
-                    });
-                  },
-                )),
+              title:
+                  Text('Theme', style: TextStyle(fontWeight: FontWeight.bold)),
+              subtitle: Text("Change Theme"),
+              leading: Icon(CupertinoIcons.moon_fill, size: 30),
+              trailing: CupertinoSwitch(
+                value: Provider.of<ThemeProvider>(context).themeModel.isDark,
+                onChanged: (value) {
+                  setState(() {
+                    Provider.of<ThemeProvider>(context, listen: false)
+                        .changeTheme();
+                  });
+                },
+              ),
+            ),
           ],
         ),
       ),

@@ -208,23 +208,3 @@ class _settings_pageState extends State<settings_page> {
     );
   }
 }
-
-//Column(
-//         mainAxisAlignment: MainAxisAlignment.start,
-//         children: [
-//           SwitchListTile.adaptive(
-//             value: true,
-//             onChanged: (val) {},
-//             title: Text("Profile"),
-//             subtitle: Text("Update Profile Data"),
-//           ),
-//           SwitchListTile.adaptive(
-//             value: Provider.of<ThemeProvider>(context).themeModel.isDark,
-//             onChanged: (val) {
-//               Provider.of<ThemeProvider>(context, listen: false).changeTheme();
-//             },
-//             title: Text("Theme"),
-//             subtitle: Text("Change Theme"),
-//           ),
-//         ],
-//       )
