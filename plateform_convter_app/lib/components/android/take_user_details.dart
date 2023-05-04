@@ -17,15 +17,11 @@ class take_user_details extends StatefulWidget {
 }
 
 class _take_user_detailsState extends State<take_user_details> {
-  TextEditingController namecontroller = TextEditingController();
-  TextEditingController phonecontroller = TextEditingController();
-  TextEditingController chatcontroller = TextEditingController();
-
   DateTime initialDate = DateTime.now();
 
   TimeOfDay initialTime = TimeOfDay.now();
-  DateTime? pickedDate;
   TimeOfDay? pickedTime;
+  DateTime? pickedDate;
 
   File? _image;
 
@@ -46,8 +42,6 @@ class _take_user_detailsState extends State<take_user_details> {
   Widget build(BuildContext context) {
     GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
-    int initialIndex = 0;
-    PageController pageController = PageController();
     return DefaultTabController(
         length: 4,
         child: Scaffold(
@@ -56,10 +50,12 @@ class _take_user_detailsState extends State<take_user_details> {
           appBar: AppBar(
             title: Text("Plateform Conveter"),
             bottom: TabBar(tabs: [
-              Tab(icon: Icon(Icons.home)),
-              Tab(icon: Icon(Icons.chat)),
-              Tab(icon: Icon(Icons.call)),
-              Tab(icon: Icon(Icons.settings)),
+              Tab(
+                icon: Icon(Icons.person_add_alt),
+              ),
+              Tab(text: "CHATS"),
+              Tab(text: "CALLS"),
+              Tab(text: "SETTINGS"),
             ]),
             actions: [
               Switch(
@@ -67,6 +63,9 @@ class _take_user_detailsState extends State<take_user_details> {
                 onChanged: (val) {
                   Provider.of<App_provider>(context, listen: false).changeApp();
                 },
+              ),
+              SizedBox(
+                width: 8,
               ),
             ],
           ),
@@ -77,7 +76,7 @@ class _take_user_detailsState extends State<take_user_details> {
                 children: [
                   CircleAvatar(
                     backgroundImage: _image != null ? FileImage(_image!) : null,
-                    minRadius: 60,
+                    minRadius: 70,
                     child: IconButton(
                       onPressed: _getImageFromCamera,
                       icon: Icon(
@@ -87,7 +86,7 @@ class _take_user_detailsState extends State<take_user_details> {
                     ),
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 10,
                   ),
                   Padding(
                     padding: EdgeInsets.all(10),
@@ -109,6 +108,7 @@ class _take_user_detailsState extends State<take_user_details> {
                     child: TextField(
                       controller: phonecontroller,
                       keyboardType: TextInputType.number,
+                      maxLength: 10,
                       decoration: InputDecoration(
                         hintText: "Enter Your Phone",
                         hintStyle: TextStyle(
@@ -210,16 +210,24 @@ class _take_user_detailsState extends State<take_user_details> {
                       String chat = chatcontroller.text;
 
                       Contact c1 = Contact(
-                          fullname: name,
-                          chat: chat,
-                          phoneNumber: phone,
-                          image: _image);
+                        fullname: name,
+                        chat: chat,
+                        phoneNumber: phone,
+                        image: _image,
+                        choosedDate: (pickedDate == DateTime.now())
+                            ? initialDate
+                            : pickedDate,
+                        choosedTime: (pickedTime == initialTime)
+                            ? initialTime
+                            : pickedTime,
+                      );
 
                       contactList.allContacts.add(c1);
 
                       namecontroller.clear();
                       phonecontroller.clear();
                       chatcontroller.clear();
+                      pickedDate == null;
                     },
                     child: Text("SAVE"),
                   ),

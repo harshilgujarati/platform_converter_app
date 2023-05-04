@@ -7,6 +7,7 @@ import 'package:plateform_convter_app/components/ios/cupertino_take_user_detail.
 import 'package:plateform_convter_app/controllers/providers/app_model_provider.dart';
 import 'package:plateform_convter_app/controllers/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'components/ios/cupertino_call_page.dart' as ios;
 import 'components/ios/cupertino_chat_page.dart' as ios;
 import 'components/ios/cupertino_home_page.dart' as ios;
@@ -15,6 +16,7 @@ import 'components/android/settings.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
   runApp(
     MultiProvider(
       providers: [
@@ -30,18 +32,16 @@ void main() async {
                   '/': (context) => ios.cupertino_home_page(),
                   'cupertino_chat_page': (context) => ios.cupertino_chat_page(),
                   'cupertino_call_page': (context) => ios.cupertino_call_page(),
-                  'cupertino_settins_page': (context) => ios.cupertino_settins_page(),
-                  'cupertino_settins_page': (context) => ios.cupertino_take_user_detail(),
+                  'cupertino_settins_page': (context) =>
+                      ios.cupertino_settins_page(),
+                  'cupertino_settins_page': (context) =>
+                      ios.cupertino_take_user_detail(),
                 },
               )
             : MaterialApp(
                 debugShowCheckedModeBanner: false,
-                theme: ThemeData.light(
-                  useMaterial3: true
-                ),
-                darkTheme: ThemeData.dark(
-                  useMaterial3: true
-                ),
+                theme: ThemeData.light(useMaterial3: true),
+                darkTheme: ThemeData.dark(useMaterial3: true),
                 themeMode:
                     (Provider.of<ThemeProvider>(context).themeModel.isDark ==
                             false)
