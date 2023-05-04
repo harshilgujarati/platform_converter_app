@@ -10,7 +10,7 @@ https://user-images.githubusercontent.com/131511029/236188797-8b31dbe6-4543-4aee
 <img align="left" src="https://user-images.githubusercontent.com/131511029/236192449-d851d00f-5bca-44ce-870c-9d2a70ba41ec.png" width="220px">
 <img align="left" src="https://user-images.githubusercontent.com/131511029/236192119-cebb9822-0c5a-4fac-b346-427acfc51826.png" width="220px">
 
-## Getting Started![Screenshot_20230504_170023]()
+## Getting Started
 
 
 This project is a starting point for a Flutter application.
