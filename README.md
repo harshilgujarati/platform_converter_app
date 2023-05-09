@@ -1,4 +1,4 @@
-# plateform_convter_app
+# Plateform Convter App
 
 ## Project Features:
 - Profile management functionality
