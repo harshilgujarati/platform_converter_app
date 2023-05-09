@@ -1,4 +1,4 @@
-# Plateform Convter App
+# Plateform Converter App
 
 ## Project Features:
 - Profile management functionality
